@@ -27,7 +27,10 @@ const stackProps: cdk.StackProps = {
 };
 
 // Create stacks
-const databaseStack = new DatabaseStack(app, `MunhuoltoDatabase-${environment}`, stackProps);
+const databaseStack = new DatabaseStack(app, `MunhuoltoDatabase-${environment}`, {
+  ...stackProps,
+  environment,
+});
 
 const cognitoStack = new CognitoStack(app, `MunhuoltoCognito-${environment}`, {
   ...stackProps,
